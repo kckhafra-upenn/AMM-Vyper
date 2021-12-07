@@ -35,7 +35,7 @@ def tradeTokens(sell_token: address, sell_quantity: uint256):
     assert sell_token == self.tokenA.address or sell_token == self.tokenB.address
     #Your code here
     if(sell_token==self.tokenA.address):
-        fee: uint256=sell_quantity.value/500
+        fee: uint256=sell_quantity/500
         eth_in_purchase:uint256=self.tokenA-fee
         new_total_A: uint256=self.tokenAQty+eth_in_purchase
         new_total_B: uint256=self.invariant/new_total_A
