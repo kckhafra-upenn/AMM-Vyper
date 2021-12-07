@@ -41,8 +41,9 @@ def tradeTokens(sell_token: address, sell_quantity: uint256):
         new_total_B: uint256 = self.invariant / new_total_A
         fee: uint256 = sell_quantity / 500
         eth_in_purchase: uint256 = sell_quantity - fee
-        new_total_eth: uint256 = self.tokenBQty + eth_in_purchase
-        self.tokenB.transfer(msg.sender, self.tokenBQty - new_total_tokens)
+        new_total_tokens: uint256 = self.tokenBQty + sell_quantity
+        new_total_eth: uint256 = self.invariant / new_total_tokens
+        self.tokenB.transfer(msg.sender, self.tokenBQty - new_total_eth)
         # token_to_send: uint256 = self.tokenAQty - new_total_B
         # self.tokenA.transfer(self.tokenA.address, token_to_send)
         # self.tokenB.transfer(self.tokenB.address, new_total_B)
