@@ -34,7 +34,6 @@ def provideLiquidity(tokenA_addr: address, tokenB_addr: address, tokenA_quantity
 def tradeTokens(sell_token: address, sell_quantity: uint256):
     assert sell_token == self.tokenA.address or sell_token == self.tokenB.address
     #Your code here
-    print(sell_token)
     if(sell_token==self.tokenA.address):
         fee: uint256=sell_quantity.value/500
         eth_in_purchase:uint256=self.tokenA-fee
