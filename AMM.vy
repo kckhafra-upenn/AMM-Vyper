@@ -41,7 +41,7 @@ def tradeTokens(sell_token: address, sell_quantity: uint256):
         # token_to_send: uint256 = self.tokenAQty - new_total_B
         # send(msg.sender, token_to_send)
         self.tokenAQty = new_total_B
-        # self.tokenBQty = new_total_tokens
+        self.tokenBQty = new_total_tokens
     # if(sell_token==self.tokenB.address):
     #     fee: uint256=sell_quantity*.3
     #     eth_in_purchase:uint256=sell_quantity-fee
