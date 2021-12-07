@@ -39,7 +39,7 @@ def tradeTokens(sell_token: address, sell_quantity: uint256):
         eth_in_purchase:uint256=sell_quantity-fee
         new_total_A: uint256=self.tokenAQty+eth_in_purchase
         new_total_B: uint256=self.invariant/new_total_A
-        self.token_address.transfer(msg.sender,sell_quantity-new_total_B)
+        self.tokenA.transfer(msg.sender,sell_quantity-new_total_B)
         self.tokenAQty=new_total_eth
         self.tokenBQty=new_total_tokens
     
