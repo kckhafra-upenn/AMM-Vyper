@@ -65,6 +65,6 @@ def ownerWithdraw():
     #Your code here
     self.tokenA.transfer(msg.sender, self.tokenA.balanceOf(self))
     self.tokenB.transfer(msg.sender, self.tokenB.balanceOf(self))
-    self.tokenAQty = 0
-    self.tokenBQty = 0
+    # self.tokenAQty = 0
+    # self.tokenBQty = 0
     # selfdestruct(self.owner)
