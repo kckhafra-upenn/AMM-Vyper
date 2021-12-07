@@ -21,6 +21,12 @@ def get_token_address(token: uint256) -> address:
 def provideLiquidity(tokenA_addr: address, tokenB_addr: address, tokenA_quantity: uint256, tokenB_quantity: uint256):
 	assert self.invariant == 0 #This ensures that liquidity can only be provided once
 	#Your code here
+    self.token_address = ERC20(token_addr)
+    self.token_address.transferFrom(msg.sender, self, token_quantity)
+    self.owner = msg.sender
+    self.totalEthQty = msg.value
+    self.totalTokenQty = token_quantity
+    self.invariant = msg.value * token_quantity
 	assert self.invariant > 0
 
 # Trades one token for the other
