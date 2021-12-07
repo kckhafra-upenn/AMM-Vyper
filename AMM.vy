@@ -20,24 +20,24 @@ def get_token_address(token: uint256) -> address:
 @external
 def provideLiquidity(tokenA_addr: address, tokenB_addr: address, tokenA_quantity: uint256, tokenB_quantity: uint256):
     assert self.invariant == 0 #This ensures that liquidity can only be provided once
-	#Your code here
-    self.tokenA = ERC20(tokenA_addr)
-    self.tokenB = ERC20(tokenB_addr)
-    self.owner = msg.sender
-    self.tokenAQty = tokenA_quantity
-    self.tokenBQty = tokenB_quantity
-    self.invariant = self.tokenAQty * self.tokenBQty
-	assert self.invariant>0
+    #Your code here
+    self.tokenA=ERC20(tokenA_addr)
+    self.tokenB=ERC20(tokenB_addr)
+    self.owner=msg.sender
+    self.tokenAQty=tokenA_quantity
+    self.tokenBQty=tokenB_quantity
+    self.invariant=self.tokenAQty * self.tokenBQty
+    assert self.invariant > 0
 
 # Trades one token for the other
-# @external
-# def tradeTokens(sell_token: address, sell_quantity: uint256):
-# 	assert sell_token == self.tokenA.address or sell_token == self.tokenB.address
-# 	#Your code here
+@external
+def tradeTokens(sell_token: address, sell_quantity: uint256):
+	assert sell_token == self.tokenA.address or sell_token == self.tokenB.address
+	#Your code here
 
-# # Owner can withdraw their funds and destroy the market maker
-# @external
-# def ownerWithdraw():
-#     assert self.owner == msg.sender
-# 	#Your code here
-#     print("OWNER",self.owner)
+# Owner can withdraw their funds and destroy the market maker
+@external
+def ownerWithdraw():
+    assert self.owner == msg.sender
+	#Your code here
+    print("OWNER",self.owner)
